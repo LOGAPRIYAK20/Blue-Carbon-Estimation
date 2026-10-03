@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+
+# Environment
+.env
+.env.*
+
+# Cache
+blue-carbon-backend/data/cache/
+
+# Local preview/test files
+blue-carbon-backend/preview.png
+
+# GMW raster data - deployed separately
+blue-carbon-backend/data/gmw/
+blue-carbon-backend/data/gmw_demo/
+
+# Node
+blue-carbon-frontend/node_modules/
+blue-carbon-frontend/dist/
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,49 @@
+{
+  "dataset": {
+    "spatial_samples": 27817,
+    "carbon_observations": 300,
+    "gmw_version": "v4.0.19",
+    "gmw_crs": "EPSG:4326",
+    "gmw_raster_size": "10000 x 10000",
+    "gmw_resolution": "0.0001 x 0.0001 degrees",
+    "gmw_class": "Binary mangrove extent"
+  },
+  "best_models": {
+    "vegetation": "Random Forest",
+    "total_carbon": "XGBoost"
+  },
+  "performance": {
+    "vegetation": [
+      { "model": "Random Forest", "r2": 0.1824, "rmse": 68.5288, "mae": 43.0801 },
+      { "model": "SVM", "r2": -0.1083, "rmse": 79.7864, "mae": 46.9046 },
+      { "model": "XGBoost", "r2": 0.0726, "rmse": 72.9843, "mae": 43.6583 }
+    ],
+    "total_carbon": [
+      { "model": "Random Forest", "r2": 0.1648, "rmse": 676.199, "mae": 346.6996 },
+      { "model": "SVM", "r2": -0.2076, "rmse": 852.0045, "mae": 449.5583 },
+      { "model": "XGBoost", "r2": 0.2507, "rmse": 655.2154, "mae": 330.7916 }
+    ]
+  },
+  "feature_importance": {
+    "source": "Vegetation carbon Random Forest",
+    "values": [
+      { "feature": "longitude", "importance": 0.237331 },
+      { "feature": "B4", "importance": 0.15301 },
+      { "feature": "latitude", "importance": 0.078076 },
+      { "feature": "B1", "importance": 0.07153 },
+      { "feature": "B12", "importance": 0.06823 },
+      { "feature": "B2", "importance": 0.060774 },
+      { "feature": "VH", "importance": 0.058339 },
+      { "feature": "B5", "importance": 0.048299 },
+      { "feature": "B3", "importance": 0.046291 },
+      { "feature": "VV", "importance": 0.042223 },
+      { "feature": "B9", "importance": 0.034996 },
+      { "feature": "B11", "importance": 0.030808 },
+      { "feature": "B6", "importance": 0.019196 },
+      { "feature": "B7", "importance": 0.019031 },
+      { "feature": "B8", "importance": 0.017762 },
+      { "feature": "B8A", "importance": 0.014101 }
+    ]
+  },
+  "validation_note": "Models were trained on only 300 carbon observations and evaluated with shuffled K-fold cross-validation. The metrics do not demonstrate generalisation to unseen geographic regions and must not be read as global carbon prediction. GMW describes mangrove extent only; it does not measure carbon."
+}
