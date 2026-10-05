@@ -32,7 +32,7 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=get_settings().cors_origins,
+    allow_origins=['https://blue-carbon-mrv.klogapriyakumaran20.workers.dev', 'http://localhost:5173', 'http://127.0.0.1:5173'],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -218,3 +218,4 @@ def predict_vegetation(payload: PredictionInput, algorithm: Algorithm | None = N
 @app.post("/api/predict/total-carbon")
 def predict_total_carbon(payload: PredictionInput, algorithm: Algorithm | None = None) -> dict[str, Any]:
     return _run_prediction("total_carbon", payload, algorithm)
+
