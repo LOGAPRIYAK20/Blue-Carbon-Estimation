@@ -2,7 +2,7 @@
 // message so the UI can show a clear error state.
 
 export const API_URL = (
-  import.meta.env.VITE_API_URL || "http://127.0.0.1:8000"
+  import.meta.env.VITE_API_URL || "https://blue-carbon-mrv-468s.onrender.com"
 ).replace(/\/$/, "");
 
 async function request(path, options = {}) {
@@ -13,8 +13,7 @@ async function request(path, options = {}) {
   } catch (error) {
     if (error.name === "AbortError") throw error;
     throw new Error(
-      `Cannot reach the backend at ${API_URL}. Start FastAPI with "uvicorn main:app --reload --port 8000".`
-    );
+      `Cannot reach the backend at ${API_URL}. Please try again in a moment.`    );
   }
 
   if (!response.ok) {
